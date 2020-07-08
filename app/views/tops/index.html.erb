@@ -1,4 +1,46 @@
-<h1>Tops#index</h1>
-<p>Find me in app/views/tops/index.html.erb</p>
-<%= link_to 'ログアウト', destroy_user_session_path, method: :delete if user_signed_in? %>
-<%= link_to '質問のテンプレートを投稿する', new_post_path if user_signed_in? %>
+ <div class="box">
+  <div class="box-inner">
+    <%= form_tag(root_path, :method => :get) do %>
+
+      <div class="box-email">
+        <%= text_field_tag "keyword" %>
+      </div>
+
+      <div class="box-login">
+        <%= submit_tag "検索" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<% if @posts.present? %>
+<table class="table table-bordered border-primary table-hover table-sm posts_table">
+  <thead class="bg-info text-light">
+    <tr>
+      <th scope="col">質問内容</th>
+      <th scope="col">回答例</th>
+
+      <% if current_user %><th></th><% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <th><%= post.question_title %></th>
+        <% if current_user %>
+          <td><%= truncate(post.answer, length: 20) do %>
+            <p><%= link_to '詳細をみる', post_path(post.id) %><p>
+          <% end %>
+        <% else %>
+           <td><%= truncate(post.answer, length: 20) do %>
+             <p><%= link_to 'ログインして詳細をみる', new_user_registration_path %><p>
+           <% end %>
+        <% end %>
+        </td>
+        <% if current_user %><td><%= link_to "削除" , post, class: 'btn btn-outline-info', method: :delete %></td><% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
