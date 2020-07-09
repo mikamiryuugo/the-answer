@@ -1,0 +1,6 @@
+# like_buttonの中のdomを操作し、
+# 引数の中で指定された要素の内側にあるHTMLを更新する。
+
+
+## renderするのはパーシャルである必要がある
+$("#like_button").html("<%= escape_javascript(render 'post_likes/post_like_form', post: @post) %>");
