@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :current_user_post, only: [:show, :edit, :update]
+
   def index
     @posts = Post.all
   end
@@ -18,15 +20,12 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = current_user.posts.find(params[:id])
   end
 
   def edit
-    @post = current_user.posts.find(params[:id])
   end
 
   def update
-    @post = current_user.posts.find(params[:id])
     if @post.update_attributes(post_params)
       flash[:notice] = "編集しました"
       redirect_to @post
@@ -40,4 +39,9 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:question_title, :answer)
   end
+
+  def current_user_post
+    @post = current_user.posts.find(params[:id])
+  end
+
 end
