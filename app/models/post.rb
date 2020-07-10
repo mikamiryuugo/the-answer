@@ -1,8 +1,8 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_many :post_likes, dependent: :destroy
-  validates :question_title, presence: true, length: { minimum: 10, maximum: 100 }
-  validates :answer, presence: true, length: { minimum: 20, maximum: 300 }
+  validates :question_title, presence: true, length: { minimum: 10, maximum: 200 }
+  validates :answer, presence: true, length: { minimum: 20, maximum: 10000 }
 
 
 # メソッド名にself.入れるとクラスメソッド。Post.search_keywordの意味になる。(modelクラスのレコードを検索するなどの用途などに使う。まさに今回の検索用やな) *なおメソッド内のselfはインスタンス自信を指すで
