@@ -7,8 +7,9 @@
   </div>
 </div>
 <%= link_to "戻る", :back %>
-<%= link_to "編集", edit_post_path(@post) %>
-
+<% if @post.user == current_user %>
+  <%= link_to "編集", edit_post_path(@post) %>
+<% end %>
 
 <div id="like_button">
   <%= render 'post_likes/post_like_form', post: @post %>
