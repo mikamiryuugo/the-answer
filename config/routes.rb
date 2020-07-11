@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   get 'post_likes/create'
   get 'post_likes/destroy'
   root 'tops#index'

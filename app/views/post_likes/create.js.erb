@@ -1,6 +1,1 @@
-# like_buttonの中のdomを操作し、
-# 引数の中で指定された要素の内側にあるHTMLを更新する。
-# 「posts#showの中の<div id="like_button"」の中で呼んでいるパーシャルの「_post_like_form.erb」を持ってきている。が、動いてない。
-# ActionView::Template::Error (undefined local variable or method のエラーや
-
 $("#like_button").html("<%= escape_javascript(render 'post_likes/post_like_form', post: @post) %>");
