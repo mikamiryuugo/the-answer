@@ -20,6 +20,8 @@
 
     <% if user_signed_in?	 %>
       <%= link_to '質問の回答例を投稿する', new_post_path, class: "nav-item nav-link" %>
+      <%= link_to "「お気に入り」の回答一覧", post_likes_path, class: "nav-item nav-link"  %>
+      <%= link_to "投稿した回答一覧", posts_path, class: "nav-item nav-link"  %>
       <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-item nav-link" %>
     <% else %>
       <%= link_to "新規登録", new_user_registration_path, class: "nav-item nav-link"  %>

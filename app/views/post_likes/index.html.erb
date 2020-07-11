@@ -7,11 +7,11 @@
     </tr>
   </thead>
   <tbody>
-    <% current_user.posts.each do |post| %>
+    <% current_user.post_likes.each do |post_like| %>
       <tr>
-        <th><%= post.question_title %></th>
-          <td><%= truncate(post.answer, length: 20) do %>
-            <p><%= link_to '詳細をみる', post_path(post.id) %><p>
+        <th><%= post_like.post.question_title %></th>
+          <td><%= truncate(post_like.post.answer, length: 20) do %>
+            <p><%= link_to '詳細をみる', post_path(post_like.post.id) %><p>
           <% end %>
         </td>
       </tr>
