@@ -11,8 +11,6 @@
     <tr>
       <th scope="col">質問内容</th>
       <th scope="col">回答例</th>
-
-      <% if current_user %><th></th><% end %>
     </tr>
   </thead>
   <tbody>
@@ -29,7 +27,6 @@
            <% end %>
         <% end %>
         </td>
-        <% if current_user %><td><%= link_to "削除" , post, class: 'btn btn-outline-info', method: :delete %></td><% end %>
       </tr>
     <% end %>
   </tbody>

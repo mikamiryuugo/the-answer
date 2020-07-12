@@ -8,7 +8,8 @@
 </div>
 <%= link_to "戻る", :back %>
 <% if @post.user == current_user %>
-  <%= link_to "編集", edit_post_path(@post) %>
+  <%= link_to "編集", edit_post_path(@post), class: 'btn btn-outline-info' %>
+  <%= link_to "削除" , post_path(@post), class: 'btn btn-outline-info', method: :delete %>
 <% end %>
 
 <div id="like_button">
