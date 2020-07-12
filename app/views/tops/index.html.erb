@@ -22,7 +22,7 @@
             <p><%= link_to '詳細をみる', post_path(post.id) %><p>
           <% end %>
         <% else %>
-           <td><%= truncate(post.answer, length: 20) do %>
+           <td class="before_login_answers"><%= truncate(post.answer, length: 20) do %>
              <p><%= link_to 'ログインして詳細をみる', new_user_registration_path %><p>
            <% end %>
         <% end %>
