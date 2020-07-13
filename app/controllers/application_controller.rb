@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   # deviseに関係ないページのリクエストした時
-  before_action :store_current_location, unless: :devise_or_home_controller?
+  before_action :store_current_location, unless: :devise_controller?
 
 
   def after_sign_in_path_for(resource)
@@ -19,9 +19,5 @@ class ApplicationController < ActionController::Base
 
   def store_current_location
     store_location_for(:user, request.url)
-  end
-
-  def devise_or_home_controller?
-    devise_controller? || controller_name == 'home'
   end
 end
