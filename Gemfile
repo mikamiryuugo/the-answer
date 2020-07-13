@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'

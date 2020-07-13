@@ -1,16 +1,16 @@
-<div class="d-flex align-items-center">
-  <h1>テンプレート編集</h1>
+<div class="container">
+  <h2>テンプレート編集</h2>
+  <%= form_for @post do |f| %>
+    <div class="form-group">
+      <%= f.label :question_title, '質問されたこと' %>
+      <%= f.text_field :question_title, value: @post.question_title, class: 'form-control' %>
+      <%= @post.errors.full_messages_for(:question_title).first %>
+    </div>
+    <div class="form-group">
+      <%= f.label :answer, '回答テンプレート' %>
+      <%= f.text_area :answer, value: @post.answer, class: 'form-control', size: "1x5" %>
+      <%= @post.errors.full_messages_for(:answer).first %>
+    </div>
+    <%= f.submit '編集', class: 'btn btn-info btn-block' %>
+  <% end %>
 </div>
-<%= form_for @post do |f| %>
-  <div class="form-group">
-    <%= f.label :question_title, '質問されたこと' %>
-    <%= f.text_field :question_title, value: @post.question_title, class: 'form-control' %>
-    <%= @post.errors.full_messages_for(:question_title).first %>
-  </div>
-  <div class="form-group">
-    <%= f.label :answer, '回答テンプレート' %>
-    <%= f.text_field :answer, value: @post.answer, class: 'form-control' %>
-    <%= @post.errors.full_messages_for(:answer).first %>
-  </div>
-  <%= f.submit '編集', class: 'btn btn-info btn-block' %>
-<% end %>
