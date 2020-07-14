@@ -20,7 +20,7 @@
 
     <% if user_signed_in?	 %>
       <%= link_to '投稿する', new_post_path, class: "nav-item nav-link" %>
-      <%= link_to "お気に入り一覧", post_likes_path, class: "nav-item nav-link"  %>
+      <%= link_to "LGTM一覧", post_likes_path, class: "nav-item nav-link"  %>
       <%= link_to "投稿一覧", posts_path, class: "nav-item nav-link"  %>
       <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-item nav-link" %>
     <% else %>

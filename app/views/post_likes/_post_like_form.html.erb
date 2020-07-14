@@ -1,10 +1,10 @@
 <% if post.post_likes.find_by(user_id: current_user.id).present? %>
   <%= form_for(post.post_likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
-    <%= f.submit "お気に入り解除", class: "btn btn-danger" %>
+    <%= f.submit "LGTM", class: "rounded-circle btn btn-danger" %>
   <% end %>
 <% else %>
   <%= form_for(post.post_likes.build, remote: true) do |f| %>
     <div><%= hidden_field_tag :post_id, post.id %></div>
-    <%= f.submit "お気に入り", class: "btn btn-primary" %>
+    <%= f.submit "LGTM", class: "rounded-circle btn btn-primary" %>
   <% end %>
 <% end %>
