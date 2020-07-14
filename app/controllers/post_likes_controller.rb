@@ -1,8 +1,8 @@
 class PostLikesController < ApplicationController
 
   def index
-    @posts = current_user.post_likes
-    @post_likes = Kaminari.paginate_array(@posts).page(params[:page]).per(20) unless @posts.nil?
+    posts = current_user.post_likes
+    @post_likes = Kaminari.paginate_array(posts).page(params[:page]).per(20)
   end
 
 
