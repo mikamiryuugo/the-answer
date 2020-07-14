@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+    @posts = current_user.posts
+    @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(20) unless @posts.nil?
   end
 
   def new
