@@ -1,3 +1,5 @@
+<div class="container">
+
 <div class="search">
   <%= form_tag(root_path, :method => :get) do %>
     <%= text_field_tag "keyword", params[:keyword], placeholder: 'キーワードで検索' %>
@@ -32,3 +34,4 @@
   </tbody>
 </table>
 <% end %>
+</div>
