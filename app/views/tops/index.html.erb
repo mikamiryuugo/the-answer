@@ -7,8 +7,10 @@
    <% end %>
 </div>
 
-<% if @posts.present? %>
 <table class="table table-bordered border-primary table-hover table-sm posts_table">
+  <% if @posts == Post.last(10) %>
+    <h1 class="latest_posts">最新の投稿</h1>
+  <% end %>
   <thead class="bg-info text-light">
     <tr>
       <th scope="col">質問内容</th>
@@ -33,6 +35,5 @@
     <% end %>
   </tbody>
 </table>
-<% end %>
-<%= paginate @posts if @posts.present? %>
+<%= paginate @posts %>
 </div>
