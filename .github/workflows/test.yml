@@ -38,3 +38,38 @@ jobs:
         HEROKU_APP_NAME: "the-answers"
       if: github.ref == 'refs/heads/master' && job.status == 'success'
       run: git push https://heroku:$HEROKU_API_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git origin/master:master
+
+# slack通知
+    - name: Slack Notification on SUCCESS
+      if: success()
+      uses: tokorom/action-slack-incoming-webhook@master
+      env:
+        INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      with:
+        text: Successfully automated deployment.
+        attachments: |
+          [
+            {
+              "color": "good",
+              "author_name": "${{ github.actor }}",
+              "author_icon": "${{ github.event.sender.avatar_url }}",
+              "fields": [
+                {
+                  "title": "Commit Message",
+                  "value": "${{ env.COMMIT_MESSAGE }}"
+                },
+                {
+                  "title": "GitHub Actions URL",
+                  "value": "${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}"
+                },
+                {
+                  "title": "Compare URL",
+                  "value": "${{ github.event.compare }}"
+                },
+                {
+                  "title": "Repository Description",
+                  "value": "${{ github.event.repository.description }}"
+                }
+              ]
+            }
+          ]
