@@ -13,9 +13,14 @@ class Post < ApplicationRecord
     posts = []
     split_keyword.each do |keyword|
       question_titles = Post.where(['question_title LIKE ?', "%#{keyword}%"])
-      posts.push(question_titles)
       answer = Post.where(['answer LIKE ?', "%#{keyword}%"])
-      posts.push(answer)
+
+      if answer&.first&.id == question_titles&.first&.id
+        posts.push(answer)
+      else
+        posts.push(answer)
+        posts.push(question_titles)
+      end
     end
     posts.flatten
   end
