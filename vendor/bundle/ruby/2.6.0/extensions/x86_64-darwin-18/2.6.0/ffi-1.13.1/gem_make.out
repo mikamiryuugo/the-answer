@@ -1,5 +1,5 @@
 current directory: /Users/mikamiryu/Desktop/the-answer/vendor/bundle/ruby/2.6.0/gems/ffi-1.13.1/ext/ffi_c
-/Users/mikamiryu/.rbenv/versions/2.6.2/bin/ruby -I /Users/mikamiryu/.rbenv/versions/2.6.2/lib/ruby/2.6.0 -r ./siteconf20200704-85821-d9itx1.rb extconf.rb
+/Users/mikamiryu/.rbenv/versions/2.6.6/bin/ruby -I /Users/mikamiryu/.rbenv/versions/2.6.6/lib/ruby/site_ruby/2.6.0 -r ./siteconf20200716-75033-1kuadxe.rb extconf.rb
 checking for ffi_prep_closure_loc() in -lffi... no
 checking for ffi_prep_closure_loc() in -llibffi... no
 checking for ffi_prep_closure_loc() in -llibffi-8... no
@@ -97,6 +97,7 @@ Making all in testsuite
 make[3]: Nothing to be done for `all'.
 Making all in man
 make[3]: Nothing to be done for `all'.
+make[3]: Nothing to be done for `all-am'.
 compiling AbstractMemory.c
 compiling ArrayType.c
 compiling Buffer.c
@@ -121,4 +122,4 @@ compiling Types.c
 compiling Variadic.c
 compiling ffi.c
 linking shared-object ffi_c.bundle
-/usr/bin/install -c -m 0755 ffi_c.bundle ./.gem.20200704-85821-ll9v3s
+/usr/bin/install -c -m 0755 ffi_c.bundle ./.gem.20200716-75033-ad6943
