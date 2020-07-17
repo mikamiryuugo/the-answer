@@ -1,25 +1,27 @@
 <div class="container">
-<table class="table table-bordered border-primary table-hover table-sm posts_table">
-  <thead class="bg-info text-light">
-    <tr>
-      <th scope="col">質問内容</th>
-      <th scope="col">回答例</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @post_likes.each do |post_like| %>
+  <table class="table table-bordered border-primary table-hover table-sm posts_table">
+    <h1 class="latest_posts">LGTMした投稿一覧</h1>
+    <thead class="bg-info text-light">
       <tr>
-        <th><%= post_like.post.question_title %></th>
-          <td><%= truncate(post_like.post.answer, length: 20) do %>
-            <div class="create_post_date"><%= post_like.post.created_at.strftime("%Y/%m/%d") + "に投稿" %><br>
-            <%= "LGTM: " + "#{post_like.post.post_likes.count}" %>
-            </div>
-            <p><%= link_to '詳細をみる', post_path(post_like.post.id) %><p>
-          <% end %>
-        </td>
+        <th scope="col">質問内容</th>
+        <th scope="col">回答例</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= paginate @post_likes %>
+    </thead>
+    <tbody>
+      <% @post_likes.each do |post_like| %>
+        <tr>
+          <th><%= post_like.post.question_title %></th>
+          <td>
+            <%= truncate(post_like.post.answer, length: 20) do %>
+              <div class="create_post_date"><%= post_like.post.created_at.strftime("%Y/%m/%d") + "に投稿" %><br>
+                <%= "LGTM: " + "#{post_like.post.post_likes.count}" %>
+              </div>
+              <p><%= link_to '詳細をみる', post_path(post_like.post.id) %><p>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @post_likes %>
 </div>
