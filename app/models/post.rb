@@ -12,8 +12,8 @@ class Post < ApplicationRecord
     split_keyword.delete("")
     posts = []
     split_keyword.each do |keyword|
-      question_titles = Post.where(['question_title LIKE ?', "%#{keyword}%"])
-      answer = Post.where(['answer LIKE ?', "%#{keyword}%"])
+      question_titles = Post.where(['question_title LIKE BINARY ?', "%#{keyword}%"])
+      answer = Post.where(['answer LIKE BINARY ?', "%#{keyword}%"])
 
       if answer&.first&.id == question_titles&.first&.id
         posts.push(answer)
