@@ -11,7 +11,9 @@
       <tr>
         <th><%= post_like.post.question_title %></th>
           <td><%= truncate(post_like.post.answer, length: 20) do %>
-            <div class="create_post_date"><%= post_like.post.created_at.strftime("%Y/%m/%d") + "に投稿" %></div>
+            <div class="create_post_date"><%= post_like.post.created_at.strftime("%Y/%m/%d") + "に投稿" %><br>
+            <%= "LGTM: " + "#{post_like.post.post_likes.count}" %>
+            </div>
             <p><%= link_to '詳細をみる', post_path(post_like.post.id) %><p>
           <% end %>
         </td>
