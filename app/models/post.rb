@@ -22,6 +22,8 @@ class Post < ApplicationRecord
         posts.push(question_titles)
       end
     end
-    posts.flatten
+    posts.flatten!
+    # LRGMが多い順
+    posts.sort_by!{|post| post.post_likes.count}.reverse
   end
 end
