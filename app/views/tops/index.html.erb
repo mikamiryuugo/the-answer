@@ -23,6 +23,7 @@
         <th><%= post.question_title %></th>
         <% if current_user %>
           <td><%= truncate(post.answer, length: 20) do %>
+            <div class="create_post_date"><%= post.created_at.strftime("%Y/%m/%d") + "に投稿" %></div>
             <p><%= link_to '詳細をみる', post_path(post.id) %><p>
           <% end %>
         <% else %>
