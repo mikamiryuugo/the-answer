@@ -4,7 +4,6 @@
 
 
 .search {
-  text-align: center;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -12,4 +11,12 @@
 .before_login_answers{
   color: transparent;
   text-shadow: 0 0 8px rgba(0,0,0,0.5);
+}
+
+#keyword{
+  height: 40px;
+}
+
+.submit_button{
+  height: 40px;
 }
